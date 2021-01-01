@@ -1,0 +1,23 @@
+$menu-background: linear-gradient(135deg, #d39cae 0%, rgb(130, 184, 194) 100%);
+
+.navMenu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  background: $menu-background;
+  overflow-x: hidden;
+  padding-top: 200px;
+}
+
+.menuBtn {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 60px;
+  color: #df2929;
+  cursor: pointer;
+  z-index: 9999;
+}

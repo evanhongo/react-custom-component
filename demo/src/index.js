@@ -1,15 +1,42 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React, { useState } from "react";
+import { render } from "react-dom";
 
-import Example from '../../src'
+import { FancyButton, FancyButtonGroup, ScrollBar, Slider } from "../../src";
 
-export default class Demo extends Component {
-  render() {
-    return <div>
-      <h1>my-component Demo</h1>
-      <Example/>
-    </div>
+export default function Demo() {
+  const [isOpen, setIsOpen] = useState(false);
+  function toggle() {
+    setIsOpen((isOpen) => !isOpen);
   }
+  return (
+    <div
+      style={{
+        display: "flex",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <h1 style={{ display: "inline-block" }}>react-custom-component Demo</h1>
+      <button
+        style={{
+          fontSize: "30px",
+          color: "#df2929",
+          cursor: "pointer",
+        }}
+        onClick={toggle}
+      >
+        Toggle
+      </button>
+      <ScrollBar />
+      <Slider width={250} isOpen={isOpen} position="left">
+        <FancyButtonGroup>
+          <FancyButton>Button1</FancyButton>
+          <FancyButton>Button2</FancyButton>
+        </FancyButtonGroup>
+      </Slider>
+    </div>
+  );
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<Demo />, document.querySelector("#demo"));
