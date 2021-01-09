@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "../../css/ScrollBar.scss";
 
-export default function ScrollBar() {
+export default function ScrollBar({ width }) {
   const progressBar = useRef(null);
 
   function handleScroll() {
@@ -21,7 +21,7 @@ export default function ScrollBar() {
 
   return (
     <div>
-      <div className="progressBar" ref={progressBar}></div>
+      <div className="progressBar" ref={progressBar} style={{ width }}></div>
       <div className="scrollPath"></div>
     </div>
   );

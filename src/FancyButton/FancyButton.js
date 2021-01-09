@@ -2,9 +2,9 @@ import React, { useRef } from "react";
 import useRipple from "./useRipple";
 import "../../css/FancyButton.scss";
 
-export const FancyButton = ({ children }) => {
+export const FancyButton = ({ style, children }) => {
   return (
-    <div className="btnClass">
+    <div className="btnClass" style={style}>
       <span></span>
       <span></span>
       <span></span>
@@ -14,12 +14,12 @@ export const FancyButton = ({ children }) => {
   );
 };
 
-export const FancyButtonGroup = ({ children }) => {
+export const FancyButtonGroup = ({ style, children }) => {
   const btnGroupRef = useRef(null);
   useRipple(btnGroupRef);
 
   return (
-    <div ref={btnGroupRef} className="btnGroup">
+    <div ref={btnGroupRef} className="btnGroup" style={style}>
       {children}
     </div>
   );

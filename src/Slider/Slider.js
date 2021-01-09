@@ -2,11 +2,17 @@ import React, { useRef, useCallback, useEffect } from "react";
 import gsap from "gsap";
 import "../../css/Slider.scss";
 
-export default function Slider({ isOpen = false, width, position, children }) {
-  const navMenuRef = useRef(null);
+export default function Slider({
+  isOpen = false,
+  width,
+  position,
+  style,
+  children,
+}) {
+  const sliderRef = useRef(null);
 
   useEffect(() => {
-    const elems = [...navMenuRef.current.childNodes];
+    const elems = [...sliderRef.current.childNodes];
     Promise.all(
       elems.map(async (elem) => {
         await gsap.to(elem, { opacity: 0 });
@@ -15,21 +21,21 @@ export default function Slider({ isOpen = false, width, position, children }) {
   }, []);
 
   const openSlider = useCallback(async () => {
-    await gsap.to(".navMenu", { width: width, duration: 0.5 });
-    const elems = [...navMenuRef.current.childNodes];
+    await gsap.to(".slider", { width: width, duration: 0.5 });
+    const elems = [...sliderRef.current.childNodes];
     elems.map(async (elem) => {
       await gsap.to(elem, { opacity: 1, duration: 1 });
     });
   }, [width]);
 
   const closeSlider = useCallback(async () => {
-    const elems = [...navMenuRef.current.childNodes];
+    const elems = [...sliderRef.current.childNodes];
     await Promise.all(
       elems.map(async (elem) => {
         await gsap.to(elem, { opacity: 0, duration: 0.5 });
       })
     );
-    gsap.to(".navMenu", { width: 0, duration: 0.5 });
+    gsap.to(".slider", { width: 0, duration: 0.5 });
   }, []);
 
   useEffect(() => {
@@ -37,9 +43,13 @@ export default function Slider({ isOpen = false, width, position, children }) {
     else closeSlider();
   }, [isOpen]);
 
-  const navMenuStyle = position === "left" ? { left: 0 } : { right: 0 };
+  const sliderStyle = position === "left" ? { left: 0 } : { right: 0 };
   return (
-    <nav className="navMenu" ref={navMenuRef} style={navMenuStyle}>
+    <nav
+      className="slider"
+      ref={sliderRef}
+      style={{ ...style, ...sliderStyle }}
+    >
       {children}
     </nav>
   );

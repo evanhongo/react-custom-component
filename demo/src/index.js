@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
 
-import { FancyButton, FancyButtonGroup, ScrollBar, Slider } from "../../src";
+import {
+  FancyButton,
+  FancyButtonGroup,
+  ScrollBar,
+  Slider,
+  Modal,
+  Loader,
+} from "../../src";
 
 export default function Demo() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,12 +36,31 @@ export default function Demo() {
         Toggle
       </button>
       <ScrollBar />
-      <Slider width={250} isOpen={isOpen} position="left">
-        <FancyButtonGroup>
-          <FancyButton>Button1</FancyButton>
-          <FancyButton>Button2</FancyButton>
-        </FancyButtonGroup>
-      </Slider>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <Modal.Header style={{ fontSize: "30px" }}>Warning!!～</Modal.Header>
+        <Modal.Content>
+          <p style={{ fontSize: "30px" }}>Are you sure?</p>
+        </Modal.Content>
+        <Modal.Actions>
+          <input
+            type="button"
+            value="No"
+            style={{
+              marginRight: "10px",
+              width: "100px",
+              height: "50px",
+              fontSize: "20px",
+            }}
+            onClick={() => setIsOpen(false)}
+          />
+          <input
+            type="button"
+            value="Yes"
+            style={{ width: "100px", height: "50px", fontSize: "20px" }}
+            onClick={() => setIsOpen(false)}
+          />
+        </Modal.Actions>
+      </Modal>
     </div>
   );
 }

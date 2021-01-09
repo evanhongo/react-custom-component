@@ -1,5 +1,6 @@
-$menu-text: rgb(241, 236, 236);
-$menu-text-hover: rgb(243, 10, 10);
+$btn-text: rgb(241, 236, 236);
+$btn-text-hover: rgb(243, 10, 10);
+$btn-background: linear-gradient(90deg, #755bea, #ff72c0);
 
 .btnGroup {
   width: fit-content;
@@ -31,18 +32,17 @@ $menu-text-hover: rgb(243, 10, 10);
 .btnClass {
   display: block;
   position: relative;
-  margin: 10px auto;
-  padding: 20px 20px;
+  padding: 10px;
   border: 0;
-  background: linear-gradient(90deg, #755bea, #ff72c0);
+  background: $btn-background;
   font-size: 35px;
-  color: $menu-text;
+  color: $btn-text;
   text-decoration: none;
   text-align: center;
   overflow: hidden;
   cursor: pointer;
   &:hover {
-    color: $menu-text-hover;
+    color: $btn-text-hover;
   }
   span {
     position: absolute;
