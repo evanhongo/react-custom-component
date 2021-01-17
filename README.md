@@ -72,6 +72,27 @@ import {
 | type  | {string} | Loading style <br/> Enums: **rolling, spinning** |
 | style | {object} | Custom styles                                    |
 
+<br />
+
+### **Dropdown**(Only for multiple selection)
+
+|  Props   |   Type    | Description                                                                   |
+| :------: | :-------: | :---------------------------------------------------------------------------- |
+| options  | {arrayOf} | Array of Dropdown.Item props e.g. `{ key: '', text: '' }`                     |
+|  value   | {arrayOf} | Current value array                                                           |
+| onChange |  {func}   | Called when the user attempts to change the value <br/> onChange(data: array) |
+|  style   | {object}  | Custom styles                                                                 |
+
+<br />
+
+### **Popup**
+
+|  Props  |   Type   | Description                                                |
+| :-----: | :------: | :--------------------------------------------------------- |
+| content |  {node}  | Element to be rendered for the popover                     |
+| trigger |  {node}  | Element to be rendered in-place where the popup is defined |
+|  style  | {object} | Custom styles                                              |
+
 ---
 
 ## Demo
@@ -112,6 +133,47 @@ import {
 ```
 
 ![image](./demo/gif/demo2.gif)
+
+<br />
+
+```js
+const [selected, setSelected] = useState([]);
+<Dropdown
+  options={[
+    { key: 1, text: "123" },
+    { key: 2, text: "234" },
+    { key: 3, text: "345" },
+    { key: 4, text: "ABC" },
+    { key: 5, text: "DEF" },
+    { key: 6, text: "GHI" },
+  ]}
+  value={selected}
+  onChange={(key) => {
+    setSelected(key);
+  }}
+/>;
+```
+
+```js
+<Popup
+  trigger={
+    <button
+      style={{
+        fontSize: "30px",
+        color: "#df2929",
+        cursor: "pointer",
+        userSelect: "none",
+      }}
+    >
+      Test
+    </button>
+  }
+  content={<div style={{ fontSize: "30px" }}>Hello World</div>}
+  style={{ margin: "300px 300px" }}
+/>
+```
+
+![image](./demo/gif/demo3.gif)
 
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
 [npm]: https://www.npmjs.org/package/npm-package
