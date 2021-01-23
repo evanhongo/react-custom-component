@@ -114,16 +114,15 @@ export default function Dropdown({
           &#9662;
         </div>
       </div>
-
-      <div
-        className="optionGroup"
-        style={{
-          width: "100%",
-          height: filteredOptions.length > 5 ? "246px" : "",
-        }}
-      >
-        {isShow &&
-          filteredOptions.map((option) => (
+      {isShow && (
+        <div
+          className="optionGroup"
+          style={{
+            width: "100%",
+            height: filteredOptions.length > 5 ? "246px" : "",
+          }}
+        >
+          {filteredOptions.map((option) => (
             <Option
               key={option.key}
               option={option}
@@ -141,7 +140,8 @@ export default function Dropdown({
               }}
             />
           ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
