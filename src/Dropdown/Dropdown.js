@@ -29,6 +29,10 @@ export default function Dropdown({
   const [selected, setSelected] = useState(multiple ? [] : "");
   const [keyword, setKeyword] = useState("");
   const [flag, setFlag] = useState(false);
+  const shouldShowPlaceholder = useMemo(
+    () => (multiple ? !selected.length : !selected),
+    [multiple, selected]
+  );
   const isShow = useMemo(() => keyword || flag, [keyword, flag]);
   const filteredOptions = useMemo(
     () =>
@@ -93,7 +97,7 @@ export default function Dropdown({
         <input
           ref={inputRef}
           type="text"
-          placeholder={placeholder}
+          placeholder={shouldShowPlaceholder && placeholder}
           style={{
             fontSize: "25px",
             minWidth: `${placeholder.length * 25}px`,
@@ -101,7 +105,6 @@ export default function Dropdown({
           }}
           value={keyword}
           onChange={handleKeywordChange}
-          autoFocus
         />
         <div
           style={{

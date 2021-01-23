@@ -28,7 +28,6 @@ export default function Demo() {
   return (
     <>
       <Dropdown
-        multiple
         placeholder="測試"
         options={[
           { key: 1, text: "123" },
@@ -62,9 +61,9 @@ export default function Demo() {
             { key: 8, text: "DEF" },
             { key: 9, text: "GHI" },
           ]}
-          value={selected}
+          value={selected2}
           onChange={(key) => {
-            setSelected(key);
+            setSelected2(key);
           }}
           style={{ marginLeft: "100px" }}
         />
