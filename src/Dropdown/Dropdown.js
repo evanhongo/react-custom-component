@@ -1,12 +1,9 @@
 import React, { useState, useMemo, useRef } from "react";
+import { relative } from "upath";
 import "../../css/Dropdown.scss";
 
-const Option = ({ option, handleClickItem, width }) => (
-  <div
-    className="option"
-    style={{ width }}
-    onClick={(e) => handleClickItem(option.key)}
-  >
+const Option = ({ option, handleClickItem }) => (
+  <div className="option" onClick={(e) => handleClickItem(option.key)}>
     {`${option.text}`}
   </div>
 );
@@ -53,6 +50,7 @@ export default function Dropdown({
       style={{
         ...style,
         display: "inline-block",
+        position: "relative",
         width,
       }}
     >
@@ -119,7 +117,10 @@ export default function Dropdown({
 
       <div
         className="optionGroup"
-        style={{ height: filteredOptions.length > 5 ? "246px" : "" }}
+        style={{
+          width: "100%",
+          height: filteredOptions.length > 5 ? "246px" : "",
+        }}
       >
         {isShow &&
           filteredOptions.map((option) => (
@@ -138,7 +139,6 @@ export default function Dropdown({
                   return onChange(key);
                 }
               }}
-              width={width}
             />
           ))}
       </div>
