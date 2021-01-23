@@ -77,13 +77,14 @@ import {
 
 ### **Dropdown**
 
-|  Props   |   Type    | Description                                                                   |
-| :------: | :-------: | :---------------------------------------------------------------------------- |
-| multiple |  {bool}   | A selection dropdown can allow multiple selections                            |
-| options  | {arrayOf} | Array of dropdown option props e.g. `{ key: '', text: '' }`                   |
-|  value   | {arrayOf} | Current value array                                                           |
-| onChange |  {func}   | Called when the user attempts to change the value <br/> onChange(data: array) |
-|  style   | {object}  | Custom styles                                                                 |
+|    Props    |   Type    | Description                                                                   |
+| :---------: | :-------: | :---------------------------------------------------------------------------- |
+|  multiple   |  {bool}   | A selection dropdown can allow multiple selections                            |
+| placeholder | {string}  | A hint that describes the expected value of the field                         |
+|   options   | {arrayOf} | Array of dropdown option props e.g. `{ key: '', text: '' }`                   |
+|    value    | {arrayOf} | Current value array                                                           |
+|  onChange   |  {func}   | Called when the user attempts to change the value <br/> onChange(data: array) |
+|    style    | {object}  | Custom styles                                                                 |
 
 <br />
 

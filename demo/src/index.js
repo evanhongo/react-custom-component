@@ -29,6 +29,7 @@ export default function Demo() {
     <>
       <Dropdown
         multiple
+        placeholder="123456"
         options={[
           { key: 1, text: "123" },
           { key: 2, text: "234" },
@@ -49,6 +50,7 @@ export default function Demo() {
       <div>
         <Dropdown
           multiple
+          placeholder="123"
           options={[
             { key: 1, text: "123" },
             { key: 2, text: "234" },

@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useRef } from "react";
-import { relative } from "upath";
 import "../../css/Dropdown.scss";
 
 const Option = ({ option, handleClickItem }) => (
@@ -23,6 +22,7 @@ export default function Dropdown({
   onChange,
   style,
   multiple,
+  placeholder,
 }) {
   const width = style?.width ?? "400px";
   const inputRef = useRef();
@@ -41,8 +41,7 @@ export default function Dropdown({
   );
 
   const handleKeywordChange = (e) => {
-    const str = e.target.value;
-    if (str.length <= 10) setKeyword(str);
+    setKeyword(e.target.value);
   };
 
   return (
@@ -94,9 +93,10 @@ export default function Dropdown({
         <input
           ref={inputRef}
           type="text"
+          placeholder={placeholder}
           style={{
             fontSize: "25px",
-            minWidth: "18px",
+            minWidth: `${placeholder.length * 18}px`,
             width: `${keyword.length * 18}px`,
           }}
           value={keyword}
