@@ -1,9 +1,11 @@
 .optionGroup {
+  width: 100%;
   position: absolute;
   margin-top: 5px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;
   overflow-y: auto;
+  z-index: 100;
 
   &::-webkit-scrollbar {
     width: 20px;

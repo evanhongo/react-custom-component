@@ -118,7 +118,6 @@ export default function Dropdown({
         <div
           className="optionGroup"
           style={{
-            width: "100%",
             height: filteredOptions.length > 5 ? "246px" : "",
           }}
         >

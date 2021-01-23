@@ -27,7 +27,26 @@ export default function Demo() {
 
   return (
     <>
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <Dropdown
+        multiple
+        options={[
+          { key: 1, text: "123" },
+          { key: 2, text: "234" },
+          { key: 3, text: "333" },
+          { key: 4, text: "321" },
+          { key: 5, text: "2345" },
+          { key: 6, text: "3456" },
+          { key: 7, text: "ABC3" },
+          { key: 8, text: "DEF" },
+          { key: 9, text: "GHI" },
+        ]}
+        value={selected}
+        onChange={(key) => {
+          setSelected(key);
+        }}
+        style={{ marginLeft: "300px" }}
+      />
+      <div>
         <Dropdown
           multiple
           options={[
@@ -45,7 +64,7 @@ export default function Demo() {
           onChange={(key) => {
             setSelected(key);
           }}
-          style={{ marginLeft: "300px" }}
+          style={{ marginLeft: "100px" }}
         />
         <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
           <Modal.Header>123</Modal.Header>
