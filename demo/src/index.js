@@ -29,7 +29,7 @@ export default function Demo() {
     <>
       <Dropdown
         multiple
-        placeholder="123456"
+        placeholder="測試"
         options={[
           { key: 1, text: "123" },
           { key: 2, text: "234" },

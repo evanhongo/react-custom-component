@@ -96,8 +96,8 @@ export default function Dropdown({
           placeholder={placeholder}
           style={{
             fontSize: "25px",
-            minWidth: `${placeholder.length * 18}px`,
-            width: `${keyword.length * 18}px`,
+            minWidth: `${placeholder.length * 25}px`,
+            width: `${keyword.length * 25}px`,
           }}
           value={keyword}
           onChange={handleKeywordChange}
