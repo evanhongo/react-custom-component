@@ -40,10 +40,11 @@ import {
 
 ### **FacncyButton, FacncyButtonGroup**
 
-|  Props   |   Type   | Description     |
-| :------: | :------: | :-------------- |
-|  style   | {object} | Custom styles   |
-| children |  {node}  | Primary content |
+|  Props   |   Type   | Description               |
+| :------: | :------: | :------------------------ |
+| onClick  |  {func}  | Called after user's click |
+|  style   | {object} | Custom styles             |
+| children |  {node}  | Primary content           |
 
 <br />
 
@@ -74,11 +75,12 @@ import {
 
 <br />
 
-### **Dropdown**(Only for multiple selection)
+### **Dropdown**
 
 |  Props   |   Type    | Description                                                                   |
 | :------: | :-------: | :---------------------------------------------------------------------------- |
-| options  | {arrayOf} | Array of Dropdown.Item props e.g. `{ key: '', text: '' }`                     |
+| multiple |  {bool}   | A selection dropdown can allow multiple selections                            |
+| options  | {arrayOf} | Array of dropdown option props e.g. `{ key: '', text: '' }`                   |
 |  value   | {arrayOf} | Current value array                                                           |
 | onChange |  {func}   | Called when the user attempts to change the value <br/> onChange(data: array) |
 |  style   | {object}  | Custom styles                                                                 |

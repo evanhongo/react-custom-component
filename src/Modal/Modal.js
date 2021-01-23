@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const Modal = ({ isOpen, onClose, style, children }) => {
-  const handleClick = (e) => {
-    if (e.target.id === "modal") onClose?.();
-  };
+  const modalRef = useRef();
 
   return (
     <div
-      id="modal"
+      ref={modalRef}
       style={{
         zIndex: 1000,
         position: "fixed",
@@ -18,7 +16,9 @@ const Modal = ({ isOpen, onClose, style, children }) => {
         width: "100%",
         height: "100%",
       }}
-      onClick={handleClick}
+      onClick={(e) => {
+        if (modalRef.current === e.target) return onClose?.();
+      }}
     >
       <div
         style={{

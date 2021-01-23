@@ -1,10 +1,24 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import useRipple from "./useRipple";
 import "../../css/FancyButton.scss";
 
-export const FancyButton = ({ style, children }) => {
+export const FancyButton = ({ style, onClick, children }) => {
+  const btnRef = useRef();
+
+  useEffect(() => {
+    btnRef.current?.addEventListener("click", onClick);
+    return () => {
+      if (onClick) btnRef.current?.removeEventListener("click", onClick);
+    };
+  }, [onClick]);
+
   return (
-    <div className="btnClass" style={style}>
+    <div
+      ref={btnRef}
+      className="btnClass"
+      style={style}
+      data-testid="fancyButton"
+    >
       <span></span>
       <span></span>
       <span></span>

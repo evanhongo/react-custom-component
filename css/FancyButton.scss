@@ -40,6 +40,7 @@ $btn-background: linear-gradient(90deg, #755bea, #ff72c0);
   text-decoration: none;
   text-align: center;
   overflow: hidden;
+  user-select: none;
   cursor: pointer;
   &:hover {
     color: $btn-text-hover;

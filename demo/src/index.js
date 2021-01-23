@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
 
 import {
@@ -14,26 +14,43 @@ import {
 
 export default function Demo() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState("");
+  const [selected2, setSelected2] = useState("");
+
   function toggle() {
     setIsOpen((isOpen) => !isOpen);
   }
+
+  useEffect(() => {
+    console.log(selected);
+  }, [selected]);
+
   return (
     <>
-      <Dropdown
-        options={[
-          { key: 1, text: "123" },
-          { key: 2, text: "234" },
-          { key: 3, text: "345" },
-          { key: 4, text: "ABC" },
-          { key: 5, text: "DEF" },
-          { key: 6, text: "GHI" },
-        ]}
-        value={selected}
-        onChange={(key) => {
-          setSelected(key);
-        }}
-      />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <Dropdown
+          multiple
+          options={[
+            { key: 1, text: "123" },
+            { key: 2, text: "234" },
+            { key: 3, text: "333" },
+            { key: 4, text: "321" },
+            { key: 5, text: "2345" },
+            { key: 6, text: "3456" },
+            { key: 7, text: "ABC3" },
+            { key: 8, text: "DEF" },
+            { key: 9, text: "GHI" },
+          ]}
+          value={selected}
+          onChange={(key) => {
+            setSelected(key);
+          }}
+          style={{ marginLeft: "300px" }}
+        />
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <Modal.Header>123</Modal.Header>
+        </Modal>
+      </div>
       <Popup
         trigger={
           <button
@@ -43,6 +60,7 @@ export default function Demo() {
               cursor: "pointer",
               userSelect: "none",
             }}
+            onClick={() => setIsOpen(true)}
           >
             Test
           </button>
