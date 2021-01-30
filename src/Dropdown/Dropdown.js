@@ -97,7 +97,7 @@ export default function Dropdown({
         <input
           ref={inputRef}
           type="text"
-          placeholder={shouldShowPlaceholder && placeholder}
+          placeholder={shouldShowPlaceholder ? placeholder : ""}
           style={{
             fontSize: "25px",
             minWidth: `${placeholder.length * 25}px`,
