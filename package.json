@@ -22,17 +22,23 @@
     "start": "nwb serve-react-demo",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "gsap": "^3.5.1"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": "^17.0.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.1.17",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "babel-jest": "^26.6.3",
@@ -43,7 +49,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
-  "author": "",
+  "author": "evanhongo <evanhongo@gmail.com>",
   "license": "MIT",
   "keywords": [
     "front-end",

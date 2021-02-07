@@ -100,6 +100,14 @@ import {
 
 ## Demo
 
+### Storybook
+
+```
+npm run storybook
+```
+
+- Demo site is hosted at http://localhost:6006
+
 <br />
 
 ![image](./demo/gif/demo1.gif)
