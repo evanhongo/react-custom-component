@@ -6,3 +6,4 @@ export { Modal } from "./Modal";
 export { Popup } from "./Popup";
 export { ScrollBar } from "./ScrollBar";
 export { Slider } from "./Slider";
+export { FancyText } from "./FancyText";

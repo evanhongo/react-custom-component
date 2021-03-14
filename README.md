@@ -12,7 +12,9 @@ import {
   Slider,
   Modal,
   Loader,
-} from "@evanhongo/react-custom-component";
+  Popup,
+  FancyText,
+} from '@evanhongo/react-custom-component'
 ```
 
 <br />
@@ -96,6 +98,17 @@ import {
 | trigger |  {node}  | Element to be rendered in-place where the popup is defined |
 |  style  | {object} | Custom styles                                              |
 
+<br />
+
+### **FancyText**
+
+| Props |   Type   | Description                                   |
+| :---: | :------: | :-------------------------------------------- |
+|  as   | {string} | Html element <br/> Enums: **div, p, h1**, etc |
+| type  | {string} | Effect style <br/> Enums: **glitch, shaking** |
+| text  | {string} | Text                                          |
+| style | {object} | Custom styles                                 |
+
 ---
 
 ## Demo
@@ -117,26 +130,26 @@ npm run storybook
 
 ```js
 <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-  <Modal.Header style={{ fontSize: "30px" }}>Warning!!～</Modal.Header>
+  <Modal.Header style={{ fontSize: '30px' }}>Warning!!～</Modal.Header>
   <Modal.Content>
-    <p style={{ fontSize: "30px" }}>Are you sure?</p>
+    <p style={{ fontSize: '30px' }}>Are you sure?</p>
   </Modal.Content>
   <Modal.Actions>
     <input
       type="button"
       value="No"
       style={{
-        marginRight: "10px",
-        width: "100px",
-        height: "50px",
-        fontSize: "20px",
+        marginRight: '10px',
+        width: '100px',
+        height: '50px',
+        fontSize: '20px',
       }}
       onClick={() => setIsOpen(false)}
     />
     <input
       type="button"
       value="Yes"
-      style={{ width: "100px", height: "50px", fontSize: "20px" }}
+      style={{ width: '100px', height: '50px', fontSize: '20px' }}
       onClick={() => setIsOpen(false)}
     />
   </Modal.Actions>
@@ -148,21 +161,21 @@ npm run storybook
 <br />
 
 ```js
-const [selected, setSelected] = useState([]);
-<Dropdown
+const [selected, setSelected] = useState([])
+;<Dropdown
   options={[
-    { key: 1, text: "123" },
-    { key: 2, text: "234" },
-    { key: 3, text: "345" },
-    { key: 4, text: "ABC" },
-    { key: 5, text: "DEF" },
-    { key: 6, text: "GHI" },
+    { key: 1, text: '123' },
+    { key: 2, text: '234' },
+    { key: 3, text: '345' },
+    { key: 4, text: 'ABC' },
+    { key: 5, text: 'DEF' },
+    { key: 6, text: 'GHI' },
   ]}
   value={selected}
   onChange={(key) => {
-    setSelected(key);
+    setSelected(key)
   }}
-/>;
+/>
 ```
 
 ```js
@@ -170,21 +183,32 @@ const [selected, setSelected] = useState([]);
   trigger={
     <button
       style={{
-        fontSize: "30px",
-        color: "#df2929",
-        cursor: "pointer",
-        userSelect: "none",
+        fontSize: '30px',
+        color: '#df2929',
+        cursor: 'pointer',
+        userSelect: 'none',
       }}
     >
       Test
     </button>
   }
-  content={<div style={{ fontSize: "30px" }}>Hello World</div>}
-  style={{ margin: "300px 300px" }}
+  content={<div style={{ fontSize: '30px' }}>Hello World</div>}
+  style={{ margin: '300px 300px' }}
 />
 ```
 
 ![image](./demo/gif/demo3.gif)
+
+```js
+<FancyText
+  as="div"
+  type="glitch"
+  text="Test123456"
+  style={{ fontSize: '70px' }}
+/>
+```
+
+![image](./demo/gif/demo4.gif)
 
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
 [npm]: https://www.npmjs.org/package/npm-package
