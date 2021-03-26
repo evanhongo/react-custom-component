@@ -26,10 +26,10 @@ export default function Demo() {
     console.log(selected);
   }, [selected]);
 
-  return(
+  return (
     <>
-      <FancyText as="div" type="glitch" text="Test123456" style={{ fontSize: "70px" }} />
-      <FancyText as="div" type="shaking" text="Test123456" style={{ fontSize: "70px" }} />
+      <FancyText as="div" type="glitch" text="Girls Frontline" style={{ margin: "0 auto", width: "fit-content", fontSize: "100px" }} />
+      {/* <FancyText as="div" type="shaking" text="Test123456" style={{ fontSize: "70px" }} /> */}
     </>
   )
 }

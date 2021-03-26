@@ -4,13 +4,16 @@
         content: attr(data-text);
         position: absolute;
         left: -1.5px;
+        width: fit-content;
         text-shadow: 1.5px 0 #69CAD1;
         animation: glitch1 .8s infinite linear alternate-reverse;
     }
     &::after {
         content: attr(data-text);
         position: absolute;
+        top: 0;
         left: 1.5px;
+        width: fit-content;
         text-shadow: -1.5px 0 #EF1751;
         animation: glitch2 1s infinite linear alternate-reverse;
     }
