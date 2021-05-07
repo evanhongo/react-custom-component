@@ -1,6 +1,15 @@
 import React, { useRef, useCallback, useEffect } from "react";
 import gsap from "gsap";
-import "../../css/Slider.scss";
+import styled from "styled-components";
+
+const StyledSlider = styled.nav`
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  background: linear-gradient(135deg, #d39cae 0%, rgb(130, 184, 194) 100%);
+  overflow-x: hidden;
+`
 
 export default function Slider({
   isOpen = false,
@@ -21,7 +30,7 @@ export default function Slider({
   }, []);
 
   const openSlider = useCallback(async () => {
-    await gsap.to(".slider", { width: width, duration: 0.5 });
+    await gsap.to("nav", { width: width, duration: 0.5 });
     const elems = [...sliderRef.current.childNodes];
     elems.map(async (elem) => {
       await gsap.to(elem, { opacity: 1, duration: 1 });
@@ -35,7 +44,7 @@ export default function Slider({
         await gsap.to(elem, { opacity: 0, duration: 0.5 });
       })
     );
-    gsap.to(".slider", { width: 0, duration: 0.5 });
+    gsap.to("nav", { width: 0, duration: 0.5 });
   }, []);
 
   useEffect(() => {
@@ -45,12 +54,11 @@ export default function Slider({
 
   const sliderStyle = position === "left" ? { left: 0 } : { right: 0 };
   return (
-    <nav
-      className="slider"
+    <StyledSlider
       ref={sliderRef}
       style={{ ...style, ...sliderStyle }}
     >
       {children}
-    </nav>
+    </StyledSlider>
   );
 }

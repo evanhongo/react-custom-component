@@ -28,8 +28,12 @@ export default function Demo() {
 
   return (
     <>
-      <FancyText as="div" type="glitch" text="Girls Frontline" style={{ margin: "0 auto", width: "fit-content", fontSize: "100px" }} />
-      {/* <FancyText as="div" type="shaking" text="Test123456" style={{ fontSize: "70px" }} /> */}
+      <ScrollBar />
+      <FancyButtonGroup>
+        <FancyButton>Test1</FancyButton>
+      </FancyButtonGroup>
+      {/* <FancyText as="div" type="glitch" text="Girls Frontline" style={{ margin: "0 auto", width: "fit-content", fontSize: "100px" }} /> */}
+      {/* <FancyText  type="shaking" text="Test123456" style={{ fontSize: "70px" }} /> */}
     </>
   )
 }

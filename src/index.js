@@ -1,4 +1,3 @@
-import "../css/index.scss";
 export { Dropdown } from "./Dropdown";
 export { FancyButton, FancyButtonGroup } from "./FancyButton";
 export { Loader } from "./Loader";

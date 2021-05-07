@@ -1,20 +1,101 @@
 import React, { useState, useMemo, useRef } from "react";
-import "../../css/Dropdown.scss";
+import styled from "styled-components";
 
+const StyledOption = styled.div`
+  background: white;
+  opacity: 0.7;
+  padding-left: 10px;
+  font-size: 20px;
+  font-family: "Microsoft JhengHei";
+  font-weight: bold;
+  line-height: 50px;
+  cursor: pointer;
+  &:hover {
+    background: pink;
+  }
+`
 const Option = ({ option, handleClickItem }) => (
-  <div className="option" onClick={(e) => handleClickItem(option.key)}>
+  <StyledOption onClick={(e) => handleClickItem(option.key)}>
     {`${option.text}`}
-  </div>
+  </StyledOption>
 );
 
+const StyledTag = styled.div`
+  display: inline-flex;
+  align-items: center;
+  background: rgb(242, 242, 242);
+  height: 40px;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 0 0.5em;
+  font-size: 20px;
+  font-family: "Microsoft JhengHei";
+  font-weight: bold;
+  color: rgb(130, 130, 130);
+  &:hover {
+    color: black;
+  }
+`
+
+const StyledCancelBtn = styled.div`
+  font-size: 25px;
+  margin-left: 5px;
+  color: rgb(130, 130, 130);
+  cursor: pointer;
+  &:hover {
+    color: black;
+  }
+`
 const Tag = ({ option, handleClickItem }) => (
-  <div className="tag">
+  <StyledTag >
     {`${option.text}`}
-    <div className="cancelBtn" onClick={(e) => handleClickItem(option.key)}>
+    <StyledCancelBtn onClick={(e) => handleClickItem(option.key)}>
       &times;
-    </div>
-  </div>
+    </StyledCancelBtn>
+  </StyledTag>
 );
+
+const StyledOptionGroup = styled.div`
+  width: 100%;
+  position: absolute;
+  margin-top: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;
+  overflow-y: auto;
+  z-index: 100;
+
+  &::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgb(242, 242, 242);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: pink;
+  }
+`
+const StyledInput = styled.input`
+  background-color: transparent;
+  color: rgb(79, 79, 79);
+  border: none;
+  outline: none;
+  ::placeholder {
+    color: rgba(130, 130, 130, 0.5);
+  }
+`
 
 export default function Dropdown({
   options,
@@ -94,7 +175,7 @@ export default function Dropdown({
                 {options.find((option) => option.key === value)?.text}
               </div>
             )}
-        <input
+        <StyledInput
           ref={inputRef}
           type="text"
           placeholder={shouldShowPlaceholder ? placeholder : ""}
@@ -118,8 +199,7 @@ export default function Dropdown({
         </div>
       </div>
       {isShow && (
-        <div
-          className="optionGroup"
+        <StyledOptionGroup
           style={{
             height: filteredOptions.length > 5 ? "246px" : "",
           }}
@@ -142,7 +222,7 @@ export default function Dropdown({
               }}
             />
           ))}
-        </div>
+        </StyledOptionGroup>
       )}
     </div>
   );

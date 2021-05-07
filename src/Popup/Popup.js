@@ -1,5 +1,35 @@
 import React, { useEffect, useRef } from "react";
-import "../../css/Popup.scss";
+import styled from "styled-components";
+
+const StyledPopup = styled.div`
+  .trigger {
+    width: fit-content;
+  }
+
+  .content {
+    position: absolute;
+    padding: 15px;
+    min-width: 200px;
+    background: white;
+    border: 1px solid #d4d4d5;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12),
+      0 2px 10px 0 rgba(34, 36, 38, 0.15);
+  }
+
+  .tail {
+    display: inline-block;
+    position: absolute;
+    margin-top: 5px;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-right: 1px solid #d4d4d5;
+    border-bottom: 1px solid #d4d4d5;
+    transform: rotate(45deg);
+    user-select: none;
+  }
+`
 
 export default function Popup({ trigger, content, style }) {
   const rootRef = useRef();
@@ -35,7 +65,7 @@ export default function Popup({ trigger, content, style }) {
   }, [trigger, content]);
 
   return (
-    <div ref={rootRef} style={{ ...style, position: "relative" }}>
+    <StyledPopup ref={rootRef} style={{ ...style, position: "relative" }}>
       {/* trigger */}
       <div className="trigger">{trigger}</div>
       {/* content */}
@@ -43,6 +73,6 @@ export default function Popup({ trigger, content, style }) {
         {content}
         <div className="tail" />
       </div>
-    </div>
+    </StyledPopup>
   );
 }
