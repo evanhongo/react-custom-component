@@ -104,7 +104,6 @@ import {
 
 | Props |   Type   | Description                                   |
 | :---: | :------: | :-------------------------------------------- |
-|  as   | {string} | Html element <br/> Enums: **div, p, h1**, etc |
 | type  | {string} | Effect style <br/> Enums: **glitch, shaking** |
 | text  | {string} | Text                                          |
 | style | {object} | Custom styles                                 |

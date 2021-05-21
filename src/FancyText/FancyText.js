@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Glitch =  (as) => styled[as]`
+const Glitch =  styled.div`
   position: relative;
   &::before {
     content: attr(data-text);
@@ -64,7 +64,7 @@ const Glitch =  (as) => styled[as]`
   }
 `
 
-const Shaking = (as) => styled[as]`
+const Shaking = styled.div`
   position: relative;
   &::before, 
   &::after {
@@ -110,21 +110,19 @@ const Shaking = (as) => styled[as]`
   }
 `
 
-const FancyText = ({as= "div", type, style, text }) => {
+const FancyText = ({type, style, text }) => {
   switch (type) {
     case "glitch" :
-      const GlitchElem = Glitch(as); 
       return (
-        <GlitchElem style={style} data-text={text}>
+        <Glitch style={style} data-text={text}>
           {text}
-        </GlitchElem>
+        </Glitch>
       )
     case "shaking" :
-      const ShakingElem = Shaking(as);
       return (
-        <ShakingElem style={style} data-text={text}>
+        <Shaking style={style} data-text={text}>
           {text}
-        </ShakingElem>
+        </Shaking>
       )
   }
 }
