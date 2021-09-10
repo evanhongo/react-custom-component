@@ -3,20 +3,19 @@ import styled from "styled-components";
 
 const Glitch =  styled.div`
   position: relative;
-  &::before {
+  &::before,
+  &::after {
     content: attr(data-text);
     position: absolute;
-    left: -1.5px;
     width: fit-content;
+  }
+  &::before {
+    left: -1.5px;
     text-shadow: 1.5px 0 #69CAD1;
     animation: glitch1 .8s infinite linear alternate-reverse;
   }
   &::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
     left: 1.5px;
-    width: fit-content;
     text-shadow: -1.5px 0 #EF1751;
     animation: glitch2 1s infinite linear alternate-reverse;
   }
@@ -70,7 +69,6 @@ const Shaking = styled.div`
   &::after {
     position: absolute;
     content: attr(data-text);
-    top: 0;
     left: 0;
     z-index: -1;
   }
@@ -121,7 +119,7 @@ const FancyText = ({type, style, text }) => {
     case "shaking" :
       return (
         <Shaking style={style} data-text={text}>
-          {text}
+          <div>{text}</div>
         </Shaking>
       )
   }
