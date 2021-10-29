@@ -5,17 +5,15 @@
     "type": "git",
     "url": "https://github.com/evanhongo/react-custom-component.git"
   },
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "React component",
-  "main": "lib/index.js",
+  "main": "lib.min/index.min.js",
   "module": "es/index.js",
   "files": [
-    "es",
-    "lib",
-    "umd"
+    "lib.min"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
+    "build": "nwb build-react-component && uglifyjs-folder lib -eo lib.min",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
@@ -46,7 +44,9 @@
     "jest": "^26.6.3",
     "nwb": "0.25.x",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "sass-loader": "^12.3.0",
+    "uglifyjs-folder": "^3.0.0"
   },
   "author": "evanhongo <evanhongo@gmail.com>",
   "license": "MIT",
