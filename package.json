@@ -5,9 +5,9 @@
     "type": "git",
     "url": "https://github.com/evanhongo/react-custom-component.git"
   },
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "React component based on styled-components",
-  "main": "lib.min/index.min.js",
+  "main": "lib.min/index.js",
   "module": "es/index.js",
   "files": [
     "lib.min"
