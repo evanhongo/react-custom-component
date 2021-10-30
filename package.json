@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/evanhongo/react-custom-component.git"
   },
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "React component based on styled-components",
   "main": "lib.min/index.min.js",
   "module": "es/index.js",
@@ -13,7 +13,7 @@
     "lib.min"
   ],
   "scripts": {
-    "build": "nwb build-react-component && uglifyjs-folder lib -eo lib.min",
+    "build": "nwb build-react-component && uglifyjs-folder lib -eo lib.min -x .js",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
