@@ -15,7 +15,11 @@ const Template = (args) => {
       <FancyButton onClick={() => setIsOpen((isOpen) => !isOpen)}>
         test
       </FancyButton>
-      <Slider {...args} isOpen={isOpen}></Slider>
+      <Slider {...args} isOpen={isOpen}>
+        <FancyButton>
+          test
+        </FancyButton>
+      </Slider>
     </>
   );
 };
