@@ -5,12 +5,13 @@
     "type": "git",
     "url": "https://github.com/evanhongo/react-custom-component.git"
   },
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "React component based on styled-components",
   "main": "lib.min/index.js",
   "module": "es/index.js",
   "files": [
-    "lib.min"
+    "lib.min",
+    "es"
   ],
   "scripts": {
     "build": "nwb build-react-component && uglifyjs-folder lib -eo lib.min -x .js",
