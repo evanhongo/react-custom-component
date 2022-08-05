@@ -11,7 +11,11 @@ import {
   Dropdown,
   Popup,
   FancyText,
+  ProgressiveImg
 } from "../../src";
+
+// import image from "../../img/large.jpg";
+// import placeholderSrc from "../../img/tiny.jpg";
 
 export default function Demo() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,8 +33,14 @@ export default function Demo() {
   return (
     <>
       <ScrollBar />
-      <FancyText as="div" type="glitch" text="Girls Frontline" style={{ margin: "0 auto", width: "fit-content", fontSize: "100px" }} />
+      {/* <FancyText as="div" type="glitch" text="Girls Frontline" style={{ margin: "0 auto", width: "fit-content", fontSize: "100px" }} /> */}
       {/* <FancyText  type="shaking" text="Test123456" style={{ fontSize: "70px" }} /> */}
+      {/* <ProgressiveImg
+        src={image}
+        placeholderSrc={placeholderSrc}
+        width="700"
+        height="465"
+      /> */}
     </>
   )
 }

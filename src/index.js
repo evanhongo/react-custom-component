@@ -6,3 +6,4 @@ export { Popup } from "./Popup";
 export { ScrollBar } from "./ScrollBar";
 export { Slider } from "./Slider";
 export { FancyText } from "./FancyText";
+export { ProgressiveImg } from "./ProgressiveImg";

@@ -14,6 +14,7 @@ import {
   Loader,
   Popup,
   FancyText,
+  ProgressiveImg
 } from '@evanhongo/react-custom-component'
 ```
 
@@ -107,6 +108,17 @@ import {
 | type  | {string} | Effect style <br/> Enums: **glitch, shaking** |
 | text  | {string} | Text                                          |
 | style | {object} | Custom styles                                 |
+
+<br />
+
+### **ProgressiveImg**
+
+| Props |   Type   | Description                                   |
+| :---: | :------: | :-------------------------------------------- |
+| src  | {string} | Actual image |
+| placeholderSrc  | {string} | Temporary image |
+| width | {string} | Width of image |
+| height | {string} | Height of image |
 
 ---
 
