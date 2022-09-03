@@ -1,24 +1,51 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
+import { createPortal } from "react-dom";
 
 const Modal = ({ isOpen, onClose, style, children }) => {
   const modalRef = useRef();
+  const targetDomRef = useRef(document.createElement('div'));
 
-  return (
+  useEffect(() => {
+    const body = document.querySelector("body");
+    body.appendChild(targetDomRef.current);
+
+    return () => {
+      body.removeChild(targetDomRef.current);
+    }
+  }, []);
+
+  //Closed when esc keydown
+  useEffect(() => {
+    const handleKeydown = (e) => {
+      if(e.keyCode === 27){        
+        onClose?.();
+      }
+    }
+    window.addEventListener("keydown", handleKeydown);
+    return () => { 
+      console.log("456")
+      window.addEventListener("keydown", handleKeydown);
+    }
+  }, [isOpen]);
+
+  const handleClick = useMemo(() => (e) => {
+    if (modalRef.current === e.target) return onClose?.();
+  }, [])
+
+  const modalContainer =  (
     <div
       ref={modalRef}
-      style={{
-        zIndex: 1000,
+      style={{        
         position: "fixed",
-        display: isOpen ? "flex" : "none",
+        display: "flex",
+        visibility: isOpen ? "visible" : "hidden",
         backgroundColor: "rgba(0,0,0,0.85)",
         top: "0",
         left: "0",
         width: "100%",
         height: "100%",
       }}
-      onClick={(e) => {
-        if (modalRef.current === e.target) return onClose?.();
-      }}
+      onClick={handleClick}
     >
       <div
         style={{
@@ -34,6 +61,8 @@ const Modal = ({ isOpen, onClose, style, children }) => {
       </div>
     </div>
   );
+
+  return createPortal(modalContainer, targetDomRef.current)
 };
 
 Modal.Header = ({ style, children }) => (

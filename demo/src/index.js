@@ -18,21 +18,26 @@ import {
 // import placeholderSrc from "../../img/tiny.jpg";
 
 export default function Demo() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [selected, setSelected] = useState("");
   const [selected2, setSelected2] = useState("");
 
-  function toggle() {
-    setIsOpen((isOpen) => !isOpen);
+  function onClose() {
+    setIsOpen(false);
   }
 
   useEffect(() => {
-    console.log(selected);
-  }, [selected]);
+    console.log("render");
+  }, [isOpen]);
 
   return (
     <>
       <ScrollBar />
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal.Header>
+          123
+        </Modal.Header>
+      </Modal>
       {/* <FancyText as="div" type="glitch" text="Girls Frontline" style={{ margin: "0 auto", width: "fit-content", fontSize: "100px" }} /> */}
       {/* <FancyText  type="shaking" text="Test123456" style={{ fontSize: "70px" }} /> */}
       {/* <ProgressiveImg
