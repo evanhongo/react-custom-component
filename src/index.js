@@ -7,3 +7,4 @@ export { ScrollBar } from "./ScrollBar";
 export { Slider } from "./Slider";
 export { FancyText } from "./FancyText";
 export { ProgressiveImg } from "./ProgressiveImg";
+export { VideoPlayer } from "./VideoPlayer";

@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/evanhongo/react-custom-component.git"
   },
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "React component based on styled-components",
   "main": "lib.min/index.js",
   "module": "es/index.js",

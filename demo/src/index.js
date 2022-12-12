@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { render } from "react-dom";
 
 import {
@@ -11,11 +11,13 @@ import {
   Dropdown,
   Popup,
   FancyText,
-  ProgressiveImg
+  ProgressiveImg,
+  VideoPlayer
 } from "../../src";
 
 // import image from "../../img/large.jpg";
 // import placeholderSrc from "../../img/tiny.jpg";
+
 
 export default function Demo() {
   const [isOpen, setIsOpen] = useState(true);
@@ -33,11 +35,7 @@ export default function Demo() {
   return (
     <>
       <ScrollBar />
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <Modal.Header>
-          123
-        </Modal.Header>
-      </Modal>
+      <VideoPlayer width="1000px" height="600px" src="https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" />
       {/* <FancyText as="div" type="glitch" text="Girls Frontline" style={{ margin: "0 auto", width: "fit-content", fontSize: "100px" }} /> */}
       {/* <FancyText  type="shaking" text="Test123456" style={{ fontSize: "70px" }} /> */}
       {/* <ProgressiveImg
